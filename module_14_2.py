@@ -9,7 +9,7 @@ id INTEGER PRIMARY KEY,
 username TEXT NOT NULL,
 email TEXT NOT NULL,
 age INTEGER,
-balance INTEGER TEXT NOT NULL
+balance INTEGER 
 )
 ''')
 
