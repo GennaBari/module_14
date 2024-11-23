@@ -6,9 +6,9 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 from crud_functions2 import *
-from module_14_1 import connection
 
-api = "7715838785:AAHWFuxFItqRsoetC_dgSd60OW9ke6lK_c8"
+
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -128,6 +128,7 @@ async def calculate_calories(call: types.CallbackQuery, state: FSMContext):
     elif call.data == 'formulas_W':
         calories = 10 * weight + 6.25 * growth - 5 * age - 161
         await call.message.answer(f'Ваша норма калорий : {calories} ккал')
+        await call.answer()
 
     @dp.message_handler(text='Регистрация')
     async def sing_up(message):
@@ -161,7 +162,7 @@ async def set_age(message, state):
     connection.commit()
     await message.answer('Вы зарегистрированы.')
 
-    await call.answer()
+
     await state.finish()
 
 
